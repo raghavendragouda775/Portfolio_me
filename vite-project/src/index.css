@@ -112,6 +112,21 @@ body{
   .text-field::placeholder{
     @apply text-zinc-400
   }
+  @keyframes slideIn {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 1s ease-out forwards;
+  }
+  
 /* @layer base {
   * {
     @apply m-0 box-border scroll-smooth border-red-500 p-0 font-inter;
