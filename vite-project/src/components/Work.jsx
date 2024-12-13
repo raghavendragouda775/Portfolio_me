@@ -1,16 +1,18 @@
 import React from 'react'
 import PorojectCard from './PorojectCard';
+import project1 from "../images/project-1.png"
+import project2 from "../images/project-2.png"
 
  const Work = () => {
     const works = [
         {
-          imgSrc: 'src/images/project-1.png',
+          imgSrc: project1,
           title: 'CodeHub',
           tags: ['scokets','development'],
           projectLink: 'https://codeeditor-ste1.onrender.com'
         },
         {
-          imgSrc: 'src/images/project-2.png',
+          imgSrc: project2,
           title: 'E-LEARN Platform',
           tags: ['API', 'Development'],
           projectLink: 'https://elearning-frontend-x1kn.vercel.app/'

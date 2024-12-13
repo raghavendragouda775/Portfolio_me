@@ -1,26 +1,30 @@
 import React from 'react';
 import SkillCard from './SkillCard';
+import css from "../images/css3.png";
+import js from "../images/javascript.svg"
+import nodejs from "../images/nodejs.png"
+import express from "../images/expressjs.png"
 
 const Skill = () => {
     const skillItem = [
        
         {
-          imgSrc: 'src/images/css3.png',
+          imgSrc: css,
           label: 'CSS',
           desc: 'User Interface'
         },
         {
-          imgSrc: 'src//images/javascript.svg',
+          imgSrc: js,
           label: 'JavaScript',
           desc: 'Interaction'
         },
         {
-          imgSrc: 'src/images/nodejs.png',
+          imgSrc:nodejs,
           label: 'NodeJS',
           desc: 'Web Server'
         },
         {
-          imgSrc: 'src/images/expressjs.png',
+          imgSrc: express,
           label: 'ExpressJS',
           desc: 'Node Framework'
         },
