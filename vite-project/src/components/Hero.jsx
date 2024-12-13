@@ -35,7 +35,7 @@ const Hero = () => {
           
           <div className="mt-8">
             {/* Buttons */}
-            <div className="flex gap-6 justify-center">
+            <div className="flex gap-6 lg:-ml-60 lg:-mr-4 justify-center">
               <ButtonPrimary href="/Resume.pdf" label='Download CV' icon="download" />
               <ButtonOutline href="#about" label='Scroll down' icon="arrow_downward" />
             </div>
