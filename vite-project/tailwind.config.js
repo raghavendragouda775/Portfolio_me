@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import tailwindScrollbar from "tailwind-scrollbar";
 export default {
+ 
   content: [
     './index.html',
     './src/**/*.{js,jsx,ts,tsx}', // Adjust based on your file structure
@@ -25,6 +26,21 @@ export default {
           90: '#111827',
         },
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+        'marquee-reverse': 'marquee-reverse 25s linear infinite',
+      },
+    
     },
   },
   plugins: [tailwindScrollbar],

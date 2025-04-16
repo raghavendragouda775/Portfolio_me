@@ -1,55 +1,50 @@
+// Skill.jsx
 import React from 'react';
-import SkillCard from './SkillCard';
 import css from "../images/css3.png";
-import js from "../images/javascript.svg"
-import nodejs from "../images/nodejs.png"
-import express from "../images/expressjs.png"
+import js from "../images/javascript.svg";
+import react from "../images/react.png";
+import nodejs from "../images/nodejs.png";
+import express from "../images/expressjs.png";
+import mongodb from "../images/mongodb.png";
+import git from "../images/git.png";
+import github from "../images/github.png";
+import docker from "../images/docker.png";
+import kube from "../images/kubernetes.png"
+import terra from "../images/terraform.png"
+
+const skillsRow1 = [css, js, react, nodejs, express, react ];
+const skillsRow2 = [mongodb, git, github, docker,kube,terra];
+
+const Row = ({ icons, reverse = false }) => (
+  <div
+    className={`flex gap-10 animate-marquee whitespace-nowrap ${reverse ? "animate-marquee-reverse" : ""}`}
+  >
+    {[...icons, ...icons].map((icon, i) => (
+      <div
+        key={i}
+        className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-gradient-to-r from-purple-600 to-blue-500 rounded-full shadow-lg hover:scale-110 transition-all duration-300 transform"
+      >
+        <img
+          src={icon}
+          alt="skill"
+          className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+        />
+      </div>
+    ))}
+  </div>
+);
 
 const Skill = () => {
-    const skillItem = [
-       
-        {
-          imgSrc: css,
-          label: 'CSS',
-          desc: 'User Interface'
-        },
-        {
-          imgSrc: js,
-          label: 'JavaScript',
-          desc: 'Interaction'
-        },
-        {
-          imgSrc:nodejs,
-          label: 'NodeJS',
-          desc: 'Web Server'
-        },
-        {
-          imgSrc: express,
-          label: 'ExpressJS',
-          desc: 'Node Framework'
-        },
-      
-      ];
-    return (
-        <section className="section">
-            <div className="container">
-                <h2 className="headline-2">Essential Tools I Use</h2>
-                <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch]">
-                    Discover the powerful tools and technologies I use to create high-performing websites & applications
-                </p>
-                <div className="grid gap-3 grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))]">
-                    {skillItem.map(({ imgSrc, label, desc }, key) => (
-                        <SkillCard key={key} imgSrc={imgSrc} label={label} desc={desc} />
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="bg-zinc-900 text-white py-20 overflow-hidden">
+      <h2 className="text-3xl font-bold text-center mb-10">🛠️ Tools I Use</h2>
+
+      <div className="space-y-10">
+        <Row icons={skillsRow1} />
+        <Row icons={skillsRow2} reverse />
+      </div>
+    </section>
+  );
 };
 
 export default Skill;
-
-
-
-
-
