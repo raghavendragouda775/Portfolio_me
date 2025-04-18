@@ -37,9 +37,10 @@ html {
   @apply absolute  bg-zinc-50 rounded-lg -z-10 transition-[top,left] duration-500
 }
 
-.btn{
-  @apply max-w-max h-9 pt-2 items-center gap-2 px-4 rounded-xl font-medium text-sm ring-1 ring-inset ring-zinc-50/5 transition-[background-color]
+.btn {
+  @apply max-w-max h-9 items-center flex gap-2 px-4 rounded-xl font-medium text-sm ring-1 ring-inset ring-zinc-50/5 transition-[background-color];
 }
+
 .btn-secondary {
   @apply bg-zinc-50 text-zinc-900 active:bg-zinc-50/80 
 }
@@ -75,12 +76,13 @@ html {
     @apply pr-3 pt-5 pb-7;
   }
   
+
   .btn-primary {
-    @apply h-10 bg-sky-400 text-zinc-950 hover:bg-sky-300 active:bg-sky-400 ;
+    @apply h-10 px-5 bg-sky-400 text-zinc-950 hover:bg-sky-300 active:bg-sky-400;
   }
+  
   .btn-outline {
-    @apply h-8 bg-transparent text-sky-400 border-2 px-5  border-sky-400 hover:bg-sky-100 active:bg-sky-200 pt-3 pb-2 ml-2 ;
-     /* Center vertically */
+    @apply h-10 px-5 bg-transparent text-sky-400 border-2 border-sky-400 hover:bg-sky-100 active:bg-sky-200;
   }
   .section
   {
@@ -126,6 +128,26 @@ html {
   .animate-slide-in {
     animation: slideIn 1s ease-out forwards;
   }
+/* Marquee slow down on small screens */
+@media (max-width: 768px) {
+  .animate-marquee, .animate-marquee-reverse {
+    animation-duration: 40s !important;
+  }
+}
+
+/* Optional: Pause on hover (for desktop) */
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth scroll for mobile */
+.marquee-container {
+  -webkit-overflow-scrolling: touch;
+}
+
+
+  
   
 /* @layer base {
   * {

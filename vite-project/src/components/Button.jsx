@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const ButtonPrimary = ({ href, target = '_self', label, icon, classes = '' }) => {
   const buttonClass = `btn ${classes}`;
   return href ? (
-    <a href={href} target={target} className={`${buttonClass} btn-primary`}>
+    <a href={href} target={target} download="RE.pdf" className={`${buttonClass} btn-primary`}>
       {label}
       {icon ? (
         <span className="material-symbols-rounded" aria-hidden="true">

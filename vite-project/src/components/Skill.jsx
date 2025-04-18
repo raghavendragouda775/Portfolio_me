@@ -15,21 +15,23 @@ const skillsRow1 = [css, js, react, nodejs, express, react];
 const skillsRow2 = [mongodb, git, github, docker, kube, terra];
 
 const Row = ({ icons, reverse = false }) => (
-  <div
-    className={`flex gap-10 animate-marquee whitespace-nowrap ${reverse ? "animate-marquee-reverse" : ""} md:justify-center`}
-  >
-    {[...icons, ...icons].map((icon, i) => (
-      <div
-        key={i}
-        className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-r from-purple-600 to-blue-500 rounded-full shadow-lg hover:scale-110 transition-all duration-300 transform"
-      >
-        <img
-          src={icon}
-          alt="skill"
-          className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-full"
-        />
-      </div>
-    ))}
+  <div className="overflow-x-auto marquee-container">
+    <div
+      className={`flex gap-10 animate-marquee whitespace-nowrap ${reverse ? "animate-marquee-reverse" : ""} md:justify-center`}
+    >
+      {[...icons, ...icons].map((icon, i) => (
+        <div
+          key={i}
+          className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center bg-gradient-to-r from-purple-600 to-blue-500 rounded-full shadow-lg hover:scale-110 transition-all duration-300 transform shrink-0"
+        >
+          <img
+            src={icon}
+            alt="skill"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-full"
+          />
+        </div>
+      ))}
+    </div>
   </div>
 );
 
