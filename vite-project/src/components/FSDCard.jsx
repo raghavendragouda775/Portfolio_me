@@ -1,20 +1,17 @@
-"use client"
-import PropTypes from "prop-types"
-
-const PorojectCard = ({ imgSrc, title, tags, projectLink, classes }) => {
+const EnhancedProjectCard = ({ imgSrc, title, tags, projectLink, classes }) => {
   return (
     <div
-      className={`group relative p-4 rounded-2xl bg-gradient-to-br from-zinc-800/90 to-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 hover:border-sky-400/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-sky-400/10 ${classes}`}
+      className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-zinc-800/90 to-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 hover:border-sky-400/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-sky-400/10 ${classes}`}
     >
       {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-400/5 via-transparent to-purple-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-400/5 via-transparent to-purple-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Animated Border Glow */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-400/20 via-purple-400/20 to-sky-400/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
 
-      {/* Image Section with Enhanced Styling */}
-      <div className="relative overflow-hidden rounded-xl mb-4">
-        <figure className="img-box w-full h-48 overflow-hidden rounded-xl">
+      {/* Image Section with Overlay */}
+      <div className="relative overflow-hidden rounded-t-2xl">
+        <figure className="img-box w-full h-48 overflow-hidden">
           <img
             src={imgSrc || "/placeholder.svg"}
             alt={title}
@@ -22,10 +19,10 @@ const PorojectCard = ({ imgSrc, title, tags, projectLink, classes }) => {
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
           {/* Floating Animation Dots */}
-          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
             <div className="flex space-x-1">
               <div className="w-2 h-2 bg-sky-400 rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
               <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: "0.2s" }} />
@@ -36,14 +33,14 @@ const PorojectCard = ({ imgSrc, title, tags, projectLink, classes }) => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col h-full">
+      <div className="relative p-6 space-y-4">
         {/* Title with Gradient Text */}
-        <h3 className="text-lg font-bold bg-gradient-to-r from-zinc-50 to-zinc-300 bg-clip-text text-transparent group-hover:from-sky-400 group-hover:to-purple-400 transition-all duration-500 mb-3">
+        <h3 className="text-xl font-bold bg-gradient-to-r from-zinc-50 to-zinc-300 bg-clip-text text-transparent group-hover:from-sky-400 group-hover:to-purple-400 transition-all duration-500">
           {title}
         </h3>
 
-        {/* Tags with Enhanced Styling */}
-        <div className="flex flex-wrap gap-2 mb-4 flex-grow">
+        {/* Animated Tags */}
+        <div className="flex flex-wrap gap-2">
           {tags.map((label, key) => (
             <span
               key={key}
@@ -58,13 +55,13 @@ const PorojectCard = ({ imgSrc, title, tags, projectLink, classes }) => {
           ))}
         </div>
 
-        {/* Visit Project Button - Always at bottom right */}
-        <div className="flex justify-end mt-auto">
+        {/* Action Button with Enhanced Styling */}
+        <div className="flex justify-end pt-2">
           <a
             href={projectLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group/btn relative inline-flex items-center px-4 py-2.5 text-sm font-semibold text-zinc-950 bg-gradient-to-r from-sky-400 to-sky-500 rounded-xl hover:from-sky-300 hover:to-sky-400 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-sky-400/25 active:scale-95"
+            className="group/btn relative inline-flex items-center px-6 py-3 text-sm font-semibold text-zinc-950 bg-gradient-to-r from-sky-400 to-sky-500 rounded-xl hover:from-sky-300 hover:to-sky-400 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-sky-400/25 active:scale-95"
           >
             <span className="relative z-10">Visit Project</span>
 
@@ -104,38 +101,8 @@ const PorojectCard = ({ imgSrc, title, tags, projectLink, classes }) => {
           style={{ animationDelay: "2s" }}
         />
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   )
 }
 
-PorojectCard.propTypes = {
-  imgSrc: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  projectLink: PropTypes.string,
-  classes: PropTypes.string,
-}
-
-export default PorojectCard
+export default EnhancedProjectCard
